@@ -26,6 +26,7 @@ sudo nano /etc/hosts
 ```
 Quedaria asi:
 ![Agregar direccion IP](img/2-ARCHIVO-HOST.png)
+
 Para confirmar que se asigno todo correctamente hacemos uso de los siguientes comandos:
 ```
 hostname ##Nos debe arrojar solo el nombre de la maquina siendo en este caso "lexcorp"
@@ -35,6 +36,7 @@ ip -br a ##Por ultimo este comando nos confirma que coincidan las IP
 ![Confirmar hostname y dominio](img/3-CONFIRMACION-HOST.png)
 
 ## Paso 3: Repositorio de proxmox
+
 El orden importa: primero se instala el kernel de Proxmox y después el paquete principal. 
 ```
 apt update && apt full-upgrade -y
