@@ -9,7 +9,7 @@ SOC (Wazuh) y entorno de ataque aislado.
 - Documentar todo el proceso
 
 ## Estado
-- [ ] Instalacion proxmox
+- [X] Instalacion proxmox
 - [ ] PFsense + VLANs
 - [ ] DNS
 - [ ] Wazuh
