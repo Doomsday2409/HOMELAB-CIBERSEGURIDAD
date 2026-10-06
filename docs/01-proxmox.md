@@ -33,6 +33,7 @@ hostname ##Nos debe arrojar solo el nombre de la maquina siendo en este caso "le
 hostname -f ##Este comando de todo estar correcto nos mostrara el nombre completo del dominio, siguiendo mi ejemplo seria "lexcorp.lab.com"
 hostname --ip-address ##Este comando nos entrega la direccion IP del host la cual no puede ser la misma que nuestro localhost, usamos la IP estatica
 ip -br a ##Por ultimo este comando nos confirma que coincidan las IP
+```
 ![Confirmar hostname y dominio](img/3-CONFIRMACION-HOST.png)
 
 ## Paso 3: Repositorio de proxmox
