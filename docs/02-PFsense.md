@@ -23,7 +23,7 @@ El primer puente en la opcion de puertos eligiremos el adaptador eth0
 ![Puentes ](img/2-Creacion_puentes1.png)
 ![Puentes ](img/3-Creacion_puentes2.png)
 Editamos el archivo interfaces cambiando el adaptador vmbr0 por DHCP, guardamos los cambios.
-![Confirmacion ](img/4-Interfaces.png)****
+![Confirmacion ](img/4-Interfaces.png)
 Dentro de la linea de comandos 
 ```
 systemctl restart networking
@@ -35,4 +35,41 @@ ip a show **interfaz** nos permitira ver a detalle  la interfaz que especifiquem
 El comando ip r muestra las rutas que tenemos en el kernel, incluyendo el gateway por defecto, que como se muetra en la
 siguiente imagen la interfaz coincide con vmbr0
 ![Confirmacion ](img/5-confirmacion.png)
-
+## Paso 2: Carga de ISO y creacion maquina virtual pfsense
+Para crear la mv de pfsense debemos descargar su ISO de la version comunidad con el siguiente link
+```
+https://www.pfsense.org/download/
+```
+Deberemos descomprimirlo, con vista server elegimos el nodo y despues nuestro apartado storage, ahi aparecerean varias opciones
+![Carga ](img/6-carga.png)
+Elegimos la que venga como **ISO Image** y despues upload para cargar
+![upload ](img/7-especificaciones.png)
+Nos aparecera para especificar algunos detalles, en OS, elegimos el lugar de almacenamiento, el archivo ISO que descomprimimos
+elegimos otro al no ser linux, solaris o windows.
+Sistema lo dejaremos por defecto
+Avanzamos a Disk, con 16gb bastaran.
+2 sockets y 1 core nos permitira que fluya bien, 2GB de ram y en **Network** seleccionaremos el puente antes mencionado vmbr0
+y modelo VirtOI
+![red ](img/8-network.png)
+Nos quedar asi
+Damos finish para terminar el proceso y del lado izquierdo debajo del nodo estara nuestra maquina virtual
+![red ](img/9-final.png)
+## Paso 3: Instalacion pfsense
+Seleccionaremos la mv recien creada, damos play para que arranque.
+Nos mostrara un mensaje de copyright, simplemente le daremos enter para aceptar.
+En seguida aparecera un menu, damos enter a la opcion de **install pfsense**
+A continuacion nos mostrara que adaptador seria opcion para WAN, unicamente nos aparecera el vmbr0 que anteriormente creamos
+![WAN](img/10-Interfaz-WAN.png)
+Avanzamos, y nos mostrara otro menu para elegir opcion de configuracion de la WAN
+En este caso debemos dejarla por defecto
+M es para modo interface o modo de interfaz
+En este caso como se puede ver esta la opcion DHCP tal y como en nuestro adaptador
+V Sirve para que la WAN envíe y reciba tráfico etiquetado con una VLAN, aun no contamos con VLAN
+U Controla qué servidor DNS usa pfSense para sus propias consultas:
+![WAN](img/11-Interfaz-WAN2.png)
+Damos en continuar y comenzara la instalacion, en este caso al no tener suscripcion usaremos la version CE o comunity.
+Una vez terminada la instalacion debemos reiniciar la maquina virtual de pfsense.
+A continuacion para añadir tarjetas de red las cuales seran correspondientes a los puentes antes creados.
+Con la maquina apagada, seleccionamos el apartado **hardware**, luego **add** y seleccionamos **Network Device**
+![WAN](img/12-Nuevo_Adaptador.png) 
+Debemos desmarcar la casilla de **Firewall** y elegir modelo VirtIO
