@@ -7,7 +7,7 @@ como firewall, enrutador y puerta de enlace de alta seguridad.
 - Aplicar política de denegación por defecto entre zonas con reglas de pfSense
 
 ## Paso 1: Creacion de puente de red
-Dentro de nuestra GUI, debemos seleccionar nuestro nodpo (lexcorp) vamos al apartado **Network** 
+Dentro de nuestra GUI, debemos seleccionar nuestro nodo (lexcorp) vamos al apartado **Network** 
 Ahi se nos mostrara los adaptadores de red, que en el apartado pasado contabamos con eth0 en DHCP
 y eth1 estatico
 ![Adaptadores de red ](img/1-Adaptadores_red.png)
