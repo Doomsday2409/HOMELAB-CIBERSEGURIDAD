@@ -23,7 +23,7 @@ El primer puente en la opcion de puertos eligiremos el adaptador eth0
 ![Puentes ](img/2-Creacion_puentes1.png)
 ![Puentes ](img/3-Creacion_puentes2.png)
 Editamos el archivo interfaces cambiando el adaptador vmbr0 por DHCP, guardamos los cambios.
-![Confirmacion ](img/4-interfaces.png)****
+![Confirmacion ](img/4-Interfaces.png)****
 Dentro de la linea de comandos 
 ```
 systemctl restart networking
