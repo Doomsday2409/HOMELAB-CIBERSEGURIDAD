@@ -14,11 +14,15 @@ y eth1 estatico
 Dentro de network elegimos la opcion Linux Bridge para crear un nuevo puente en total seran 5 nuevos:
 vmbr0: Se usara para WAN y permitir el acceso a internet por medio de PFsense, debemos elegir en bridge port nuestro 
 adaptador eth0.
-Para el resto debemos dejarlos vacios.
+Para el resto debemos dejarlos vacios. 
 vmbr1:Lo usaremos como DMZ, ahi alojaremos Ubuntu Server y nuestro servidor apache
+
 vmbr2: Usado para administrar nuestros DNS con technitium asi como la BD y los respaldos
+
 vmbr3: SOC, ahi dentro manejaremos las herramientas de seguridad Suricata, Zeek y Wazuh
+
 vmbr4: Nuestra zona de guerra, ahi realizaremos pruebas de ataque con maquina de kali linux
+
 El primer puente en la opcion de puertos eligiremos el adaptador eth0
 ![Puentes ](img/2-Creacion_puentes1.png)
 ![Puentes ](img/3-Creacion_puentes2.png)
@@ -34,7 +38,9 @@ El primer comando reinicia el servicio de red para confirmar que se aplicaron lo
 ip a show **interfaz** nos permitira ver a detalle  la interfaz que especifiquemos, en este caso el primer puente que creamos
 El comando ip r muestra las rutas que tenemos en el kernel, incluyendo el gateway por defecto, que como se muetra en la
 siguiente imagen la interfaz coincide con vmbr0
+
 ![Confirmacion ](img/5-confirmacion.png)
+
 ## Paso 2: Carga de ISO y creacion maquina virtual pfsense
 Para crear la mv de pfsense debemos descargar su ISO de la version comunidad con el siguiente link
 ```
