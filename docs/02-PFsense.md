@@ -57,15 +57,18 @@ Avanzamos a Disk, con 16gb bastaran.
 2 sockets y 1 core nos permitira que fluya bien, 2GB de ram y en **Network** seleccionaremos el puente antes mencionado vmbr0
 y modelo VirtOI
 ![red ](img/8-network.png)
+
 Nos quedar asi
 Damos finish para terminar el proceso y del lado izquierdo debajo del nodo estara nuestra maquina virtual
 ![red ](img/9-final.png)
+
 ## Paso 3: Instalacion pfsense
 Seleccionaremos la mv recien creada, damos play para que arranque.
 Nos mostrara un mensaje de copyright, simplemente le daremos enter para aceptar.
 En seguida aparecera un menu, damos enter a la opcion de **install pfsense**
 A continuacion nos mostrara que adaptador seria opcion para WAN, unicamente nos aparecera el vmbr0 que anteriormente creamos
 ![WAN](img/10-Interfaz-WAN.png)
+
 Avanzamos, y nos mostrara otro menu para elegir opcion de configuracion de la WAN
 En este caso debemos dejarla por defecto
 M es para modo interface o modo de interfaz
@@ -73,9 +76,11 @@ En este caso como se puede ver esta la opcion DHCP tal y como en nuestro adaptad
 V Sirve para que la WAN envíe y reciba tráfico etiquetado con una VLAN, aun no contamos con VLAN
 U Controla qué servidor DNS usa pfSense para sus propias consultas:
 ![WAN](img/11-Interfaz-WAN2.png)
+
 Damos en continuar y comenzara la instalacion, en este caso al no tener suscripcion usaremos la version CE o comunity.
 Una vez terminada la instalacion debemos reiniciar la maquina virtual de pfsense.
 A continuacion para añadir tarjetas de red las cuales seran correspondientes a los puentes antes creados.
 Con la maquina apagada, seleccionamos el apartado **hardware**, luego **add** y seleccionamos **Network Device**
 ![WAN](img/12-Nuevo_Adaptador.png) 
+
 Debemos desmarcar la casilla de **Firewall** y elegir modelo VirtIO
