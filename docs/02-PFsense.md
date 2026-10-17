@@ -47,9 +47,13 @@ Para crear la mv de pfsense debemos descargar su ISO de la version comunidad con
 https://www.pfsense.org/download/
 ```
 Deberemos descomprimirlo, con vista server elegimos el nodo y despues nuestro apartado storage, ahi aparecerean varias opciones
+
 ![Carga ](img/6-carga.png)
+
 Elegimos la que venga como **ISO Image** y despues upload para cargar
+
 ![upload ](img/7-especificaciones.png)
+
 Nos aparecera para especificar algunos detalles, en OS, elegimos el lugar de almacenamiento, el archivo ISO que descomprimimos
 elegimos otro al no ser linux, solaris o windows.
 Sistema lo dejaremos por defecto
