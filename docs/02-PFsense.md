@@ -84,3 +84,52 @@ Con la maquina apagada, seleccionamos el apartado **hardware**, luego **add** y 
 ![WAN](img/12-Nuevo_Adaptador.png) 
 
 Debemos desmarcar la casilla de **Firewall** y elegir modelo VirtIO
+## Paso 4: configuracion Interfaces:
+Despues de haber añadido las interfaces de red encendemos la maquina virtual de pfsense, nos va a mostrar un menu con varias opciones, elegimos la opcion 1 "Assign Interfaces" para 
+configurar las interfaces que antes añadimos
+![WAN](img/13-Anadir_interfaces.png) 
+
+Nos preguntara si se configuraran VLAN en este momento, no es necesario daremos que no ya que usamos puentes de Red.
+Despues nos mostrara las opciones que tenemos de interfaces. Debemos elegir una como WAN, que seria la opcion 1 vtnet0 que anteriormente configuramos con DHCP para que nos diera salida a internet.
+A continuacion nos pedira una como LAN, elegiremos la vtnet1
+![WAN](img/14-WAN_LAN.png) 
+
+Para las otras 3 VLAN que configuramos las asignaremos como opcionales, con el fin de tenerlas como subredes aisladas
+## Paso 5: Configuracion IP
+
+Volviendo al menu principal de pfsense seleccionamos la opcion 2 "Set interface IP address" para asignar direcciones rangos de IP a nuestras interfaces
+Veremos las opciones de interfaces que tenemos apra configurar, nos preguntara si la queremos por DHCP, el rango y mascara de subred que el daremos, si tendra IPv6 y al final la direccion para configuracion web
+![WAN](img/15-asignar_ips.png)
+Configuradas todas las IP nos aparecera algo como esto
+![WAN](img/16-ip_lab.png) 
+## Paso 6: Maquina de prueba
+Antes de pasar a levantar servicios debemos verificar que la configuracion de las interfaces es correcta y nos permite comunicacion.
+Creamos una nueva maquina virtual con debian, dentro de esta vamos modificar el archivo intefaces.
+Revisamos el nombre de nuestra interfaz dentro de linux con:
+´´´
+ip a
+´´´´
+Nos arrojara el nombre y la configuracion actual, pasamos a la siguiente ruta
+´´´
+sudo nano /etc/networking/interfaces
+´´´
+Dentro colocamos la direccion ip que este dentro del rango de la interfaz y el gatway que seria:
+![WAN](img/17-linux.png)
+Luego de modificar reiniciamos el servicio
+´´´
+sudo systemctl restart networking
+´´´
+Para verificar que este funcionando hacemos
+´´´
+ip a # veremos nuestras interfaces nuevamente para confirma que coincide con la modificacion
+ping -c 4 10.50.10.1 # confirmar que nuestro gateway responde
+ping -c 4 8.8.8.8 # confirmar que tenemos internet
+´´´
+Probamos por ultimo la GUI con la direccion que nos dio pfsense en un inicio, nos dara alerta de conexion insegura tal como proxmox
+Para ingresar por default las credenciales son 
+Admin
+pfsense
+debera verse asi al entrar:
+![WAN](img/18-gui.png)
+
+
