@@ -143,13 +143,13 @@ Para verificar que este funcionando hacemos
 
 ``
 ip a # veremos nuestras interfaces nuevamente para confirma que coincide con la modificacion
-
-ping -c 4 10.50.10.1 # confirmar que nuestro gateway responde
-
-ping -c 4 8.8.8.8 # confirmar que tenemos internet
-
 ``
-
+``
+ping -c 4 10.50.10.1 # confirmar que nuestro gateway responde
+``
+``
+ping -c 4 8.8.8.8 # confirmar que tenemos internet
+``
 
 Probamos por ultimo la GUI con la direccion que nos dio pfsense en un inicio, nos dara alerta de conexion insegura tal como proxmox
 Para ingresar por default las credenciales son 
