@@ -122,28 +122,28 @@ Configuradas todas las IP nos aparecera algo como esto
 Antes de pasar a levantar servicios debemos verificar que la configuracion de las interfaces es correcta y nos permite comunicacion.
 Creamos una nueva maquina virtual con debian, dentro de esta vamos modificar el archivo intefaces.
 Revisamos el nombre de nuestra interfaz dentro de linux con:
-´´´
+``
 ip a
-´´´
+``
 Nos arrojara el nombre y la configuracion actual, pasamos a la siguiente ruta
-´´´
+``
 sudo nano /etc/networking/interfaces
-´´´
+``
 Dentro colocamos la direccion ip que este dentro del rango de la interfaz y el gatway que seria:
 
 ![WAN](img/17-linux.png)
 
 Luego de modificar reiniciamos el servicio
-´´´
+``
 sudo systemctl restart networking
-´´´
+``
 Para verificar que este funcionando hacemos
 
-´´´
+``
 ip a # veremos nuestras interfaces nuevamente para confirma que coincide con la modificacion
 ping -c 4 10.50.10.1 # confirmar que nuestro gateway responde
 ping -c 4 8.8.8.8 # confirmar que tenemos internet
-´´´
+``
 
 Probamos por ultimo la GUI con la direccion que nos dio pfsense en un inicio, nos dara alerta de conexion insegura tal como proxmox
 Para ingresar por default las credenciales son 
