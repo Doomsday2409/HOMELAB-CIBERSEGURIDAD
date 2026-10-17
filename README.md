@@ -16,4 +16,4 @@ SOC (Wazuh) y entorno de ataque aislado.
 
 ## Documentación
 - [Instalación de Proxmox](docs/01-proxmox.md)
-- [Gestion VLANs](docs/02-PFsense.md)
+- [Gestion Bridge](docs/02-PFsense.md)
