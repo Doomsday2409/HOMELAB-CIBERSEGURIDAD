@@ -75,6 +75,7 @@ M es para modo interface o modo de interfaz
 En este caso como se puede ver esta la opcion DHCP tal y como en nuestro adaptador
 V Sirve para que la WAN envíe y reciba tráfico etiquetado con una VLAN, aun no contamos con VLAN
 U Controla qué servidor DNS usa pfSense para sus propias consultas:
+
 ![WAN](img/11-Interfaz-WAN2.png)
 
 Damos en continuar y comenzara la instalacion, en este caso al no tener suscripcion usaremos la version CE o comunity.
