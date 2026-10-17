@@ -11,6 +11,8 @@ SOC (Wazuh) y entorno de ataque aislado.
 ## Estado
 - [X] Instalacion proxmox
 - [ ] PFsense + puentes
+- [ ] Ubuntu Server
+- [ ] DMZ
 - [ ] DNS
 - [ ] Wazuh y herramientas SOC
 
