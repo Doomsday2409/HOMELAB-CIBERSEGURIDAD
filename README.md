@@ -25,7 +25,7 @@ SOC (Wazuh) y entorno de ataque aislado.
 
 ```mermaid
 flowchart TB
-    INET(["Internet"]) --> FW["OPNsense<br/>Firewall / Router"]
+    INET(["Internet"]) --> FW["PFSense<br/>Firewall / Router"]
     FW --> DMZ
     FW --> SRV
     FW --> SOC
@@ -44,7 +44,6 @@ flowchart TB
     subgraph SOC["VLAN 30 - SOC / Gestión"]
         WAZ["Wazuh"]
         IDS["Suricata / Zeek"]
-        GRA["Grafana / Prometheus / Loki"]
     end
 
     subgraph ATK["VLAN 50 - Ataque"]
