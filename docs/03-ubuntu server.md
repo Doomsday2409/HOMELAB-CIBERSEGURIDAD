@@ -16,4 +16,12 @@ http://ubuntu.com/download/server
 ````
 
 Debe tener estas especificaciones:
-1-CARACTERISTICAS UBUNTU
+1-CARACTERISTICAS UBUNTU 
+![UBUNTU ](img/1-CARACTERISTICAS_UBUNTU.png)
+
+## Paso 2: Configuracion Ubuntu
+Al correr la maquina recien creada nos apareceran los tipicos inicia al arrancar linux.
+-idioma
+-teclado
+un punto importante es que nos mostrara el tipo de instalacion:
+![UBUNTU ](img/2-TIPO_INSTALACION.png)
