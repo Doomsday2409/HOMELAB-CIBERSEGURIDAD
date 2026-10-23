@@ -21,4 +21,4 @@ SOC (Wazuh) y entorno de ataque aislado.
 ## Documentación
 - [Instalación de Proxmox](docs/01-proxmox.md)
 - [Gestion Bridge](docs/02-PFsense.md)
-- [Levantar UBUNTU SERVER](docs/03-ubuntuserver.md)
+- [Levantar UBUNTU SERVER](docs/03-ubuntu_server.md)
