@@ -1,13 +1,12 @@
 # Ubuntu Sever LTS
 
-Proxmox Virtual Environment (Proxmox VE) es una plataforma de virtualización de servidores de código abierto
-que permite administrar máquinas virtuales y contenedores desde una única interfaz web
+Ubuntu Server es una versión del sistema operativo libre y de código abierto Ubuntu (desarrollado por Canonical), diseñada específicamente 
+para funcionar en ordenadores y entornos que actúan como servidores.
 
 ## Objetivos
-- Habilitar la virtualización anidada en Hyper-V
-- Configurar hostname y dominio
-- Instalar el repositorio y el kernel de Proxmox VE
-- Acceder a la interfaz web de Proxmox
+- Descargar ubuntu server LTS
+- Configurar ubuntu server
+- Probar conexion de red
 
 ## Paso 1: Creacion maquina virtual
 Repetimos el proceso para la creacion de la maquina virtual que hicimos con pfsanse usando el ISO de ubuntu server LTS, ese ISO lo descargamos en:
