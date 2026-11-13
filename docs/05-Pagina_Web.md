@@ -32,6 +32,7 @@ Dentro de /etc/apache modificamos el archivo "ports.conf" debe quedar asi:
 Igual iremos a /etc/apache/sites-availables/ y modificaremos el archivo "000-default.conf" 
 
 ![UBUNTU ](img/4-CAMBIO_HOST.png)
+
 Modificamos a puerto 8080 porque el puerto 80 que recibira las peticiones sera nginx pero eso lo veremos mas adelante.
 Reiniciamos el servicio para que se vea reflejado.
 
