@@ -26,7 +26,9 @@ systemctl status apache2
 ````
 Posterior a eso debemos modificar el puerto ya que quien manejaria las peticiones seria nuestro proxy inverso.
 Dentro de /etc/apache modificamos el archivo "ports.conf" debe quedar asi:
+
 ![UBUNTU ](img/3-CAMBIO_PUERTOS.png)
+
 Igual iremos a /etc/apache/sites-availables/ y modificaremos el archivo "000-default.conf" 
 
 ![UBUNTU ](img/4-CAMBIO_HOST.png)
