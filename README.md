@@ -13,15 +13,16 @@ SOC (Wazuh) y entorno de ataque aislado.
 - [X] PFsense + puentes
 - [X] Ubuntu Server
 - [ ] DMZ
-- [ ] DNS
 - [ ] Base de datos
+- [ ] DNS
 - [ ] Wazuh y herramientas SOC
 - [ ] Pruebas de vulnerabilidades
 
 ## Documentación
 - [Instalación de Proxmox](docs/01-proxmox.md)
 - [Gestion Bridge](docs/02-PFsense.md)
-- [Levantar UBUNTU SERVER](docs/03-ubuntu_server.md)
+- [Reglas para DMZ] docs/03-reglas.md)
+- [Levantar UBUNTU SERVER](docs/04-ubuntu_server.md)
 
 ```mermaid
 flowchart TB
