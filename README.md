@@ -21,7 +21,7 @@ SOC (Wazuh) y entorno de ataque aislado.
 ## Documentación
 - [Instalación de Proxmox](docs/01-proxmox.md)
 - [Gestion Bridge](docs/02-PFsense.md)
-- [Reglas para DMZ] docs/03-First Rules.md)
+- [Reglas para DMZ](docs/03-First Rules.md)
 - [Levantar UBUNTU SERVER](docs/04-ubuntu_server.md)
 
 ```mermaid
