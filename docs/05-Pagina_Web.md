@@ -62,7 +62,7 @@ server {
         proxy_set_header X-Forwarded-Proto $scheme;
     }
 }
-
+````
 La primer linea es encargada de iniciar el archivo de configuracion
 Listen 80 indica que puerto escuchara
 server_name con el guion se usa como comodin para que atienda cualquier peticion que llegue
