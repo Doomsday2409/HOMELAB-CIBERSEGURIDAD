@@ -43,4 +43,38 @@ sudo apt install nginx -y
 ````
 ![UBUNTU ](img/2-INSTALACION_NGINX.png)
 
-## Paso 2: Instalacion NGINX
+
+## Paso 3: Creacion de sitio en NGINX
+Vamos a "/etc/nginx/sites-available" y creamos el archivo "web-dmz"
+Dentro de este colocamos el siguiente texto:
+````
+server {
+    listen 80;
+    server_name _;
+
+    server_tokens off;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+````
+Y reeiniciamos el servicio con:
+````
+sudo systemctl restart nginx
+````
+Para confirmar que esta activado nginx y apache escuchando en su respectivo puerto usamos
+````
+sudo ss -tlnp | grep -E "nginx|apache"
+````
+Aparecera activos los siguientes procesos
+
+![UBUNTU ](img/5-PROCESOS.png)
+
+Por ultimo hacemos una peticion web que nos respondera nginx
+
+![UBUNTU ](img/6-PETICION_WEB.png)
