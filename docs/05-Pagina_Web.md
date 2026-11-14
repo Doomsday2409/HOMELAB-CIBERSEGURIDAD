@@ -98,6 +98,9 @@ sudo ln -s /etc/nginx/sites-available/web-dmz /etc/nginx/sites-enabled/web-dmz
 ````
 sudo ss -tlnp | grep -E "nginx|apache"
 ````
+````
+curl -I http://127.0.0.1
+````
 ![UBUNTU](img/5-VALIDACIONES.png)
 
 El primer comando es para revisar la sintaxis de nginx, al estar todo correcto nos arroja un OK
@@ -107,5 +110,13 @@ El seguno es para crear un enlace simbolico entre las carpetas available y enabl
 Despues ss nos muestra los procesos activos de nginx y de apache, como se puede ver apache solo escucha en puerto 8080 a local host(127.0.0.1) y nginx escucha todo en 80.
 
 Por ultimo la peticion web tal como se menciono en server_tokets off, no se muestra la version de este, y al estar activo es quien responde las peticiones no apache.
-## Paso 3: Creacion de sitio en NGINX
 
+## Paso 4: Validacion Final
+
+Pasamos a la maquina virtual donde hacemos pruebas, dentro de esta intentaremos neuvamente peticiones web:
+
+![UBUNTU](img/6-PETICION_WEB.png)
+
+Nos respondera igual con los datos de la peticion web, despues vamos al navegador y nos arrojara el apache
+
+![UBUNTU](img/7-PAGINA.png)
