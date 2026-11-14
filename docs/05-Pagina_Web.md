@@ -64,15 +64,25 @@ server {
 }
 ````
 La primer linea es encargada de iniciar el archivo de configuracion
+
 Listen 80 indica que puerto escuchara
+
 server_name con el guion se usa como comodin para que atienda cualquier peticion que llegue
+
 Server_tokens off hace que al dar peticiones web  no se muestre la version del nginx esto lo mostraremos mas adelante
+
 Location / define el bloque de locacion y la diagonal se usa para peticiones que entren en raiz del sitio como "/contacto, /productos, /inicio" etc.
+
 proxy_passs es usado para manejar las peticiones, ordena que tome la peticion y se la pase a apache por 8080 enviandola internamente, apache procesa la peticion y regresa la respuesta a nginx para que este la entregue al usuario.
+
 Proxy_set_header host  funciona como intermediario, por defecto podría pasarle a Apache un encabezado Host genérico. Esta línea le transmite a Apache el dominio o IP original que el usuario escribió en su navegador (almacenado en la variable $host).
+
 proxy_set_header X-Real-IP añade una cabecera con ese nombre, dado a que nginx es la unica conexion que conoce apache, esa cabecera contiene la IP real del cliente.
+
 X-Forwarded-For es similar a la anteriro
+
 X-Forwarded-Proto le informa a apache que protocolo utilizo el usuario para conectarse, como SSL que mas adelante configuraremos.
+
 Despues para confirmar que se guarden los cambios recargamos el servicio
 
 ````
