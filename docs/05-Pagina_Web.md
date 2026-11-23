@@ -144,4 +144,47 @@ Para verificar que se guardaron los certicados hacemos ssl a /etc/nginx/ssl veri
 ## Paso 6: PUERTO 430
 En el paso 3, se mostro el archivo de configuracion original el cual abriamos el puerto 80 para que nginx recibiera peticiones y las redirigiera a 8080 para que las manejara APACHE
 con el HTTPS quedara un poco distinto.
-vamos a /etc/nginx/sites-available
+vamos a /etc/nginx/sites-available y modificamos el archivo web-dmz
+
+````
+server {
+    listen 80;
+    server_name _;
+    server_tokens off;
+    return 301 https://$host$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name _;
+
+    server_tokens off;
+
+    ssl_certificate /etc/nginx/ssl/web-dmz.crt;
+    ssl_certificate_key /etc/nginx/ssl/web-dmz.key;
+
+    location / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+````
+return 301 es redireccion permanente, $host conserva el dominio/ip y $request_uri conserva la ruta y parametros como /inndex.html o /login
+en el segundo bloque tiene  ssl_certificate /etc/nginx/ssl/web-dmz.crt; para buscar la llave publica y ssl_certificate_key /etc/nginx/ssl/web-dmz.key; a la privada
+## Paso 7: Confirmacion en navegador
+Una vez modificado el archivo de configuracion reiniciamos el servicio para que se apliquen los cambios y tiramos peticion con CURL
+````
+curl -Ik https://127.0.0.1
+````
+Mostrandonos este resultado
+![UBUNTU](img/9-PETICIONHTTPS.png)
+y vamos a ir a nuestra MV de prueba, buscamos
+
+````
+http://10.50.10.2
+````
+por defecto cambiara el http por https pero al ser autofirmado igual nos mostrara el mensaje de no seguro
+![UBUNTU](img/10-PAGINA.png)
