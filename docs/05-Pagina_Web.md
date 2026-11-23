@@ -173,14 +173,21 @@ server {
 }
 ````
 return 301 es redireccion permanente, $host conserva el dominio/ip y $request_uri conserva la ruta y parametros como /inndex.html o /login
-en el segundo bloque tiene  ssl_certificate /etc/nginx/ssl/web-dmz.crt; para buscar la llave publica y ssl_certificate_key /etc/nginx/ssl/web-dmz.key; a la privada
+en el segundo bloque tiene  ssl_certificate /etc/nginx/ssl/web-dmz.crt; 
+para buscar la llave publica y ssl_certificate_key /etc/nginx/ssl/web-dmz.key; a la privada
+
 ## Paso 7: Confirmacion en navegador
+
 Una vez modificado el archivo de configuracion reiniciamos el servicio para que se apliquen los cambios y tiramos peticion con CURL
+
 ````
 curl -Ik https://127.0.0.1
 ````
+
 Mostrandonos este resultado
+
 ![UBUNTU](img/9-PETICIONHTTPS.png)
+
 y vamos a ir a nuestra MV de prueba, buscamos
 
 ````
