@@ -141,7 +141,7 @@ OUT guarda la clave publica en la ruta mostrada
 Para verificar que se guardaron los certicados hacemos ssl a /etc/nginx/ssl verificando que este web-dmz.crt y web-dmz.key
 ![UBUNTU](img/8-CERTIFICADOS.png)
 
-## Paso 6: PUERTO 430
+## Paso 6: PUERTO 443
 En el paso 3, se mostro el archivo de configuracion original el cual abriamos el puerto 80 para que nginx recibiera peticiones y las redirigiera a 8080 para que las manejara APACHE
 con el HTTPS quedara un poco distinto.
 vamos a /etc/nginx/sites-available y modificamos el archivo web-dmz
