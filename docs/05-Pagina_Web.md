@@ -111,7 +111,7 @@ Despues ss nos muestra los procesos activos de nginx y de apache, como se puede 
 
 Por ultimo la peticion web tal como se menciono en server_tokets off, no se muestra la version de este, y al estar activo es quien responde las peticiones no apache.
 
-## Paso 4: Validacion Final
+## Paso 4: Validacion 
 
 Pasamos a la maquina virtual donde hacemos pruebas, dentro de esta intentaremos neuvamente peticiones web:
 
@@ -120,3 +120,28 @@ Pasamos a la maquina virtual donde hacemos pruebas, dentro de esta intentaremos 
 Nos respondera igual con los datos de la peticion web, despues vamos al navegador y nos arrojara el apache
 
 ![UBUNTU](img/7-PAGINA.png)
+## Paso 5: CERTIFICADOS
+Lo siguiente es añadir SSL para volver mas seguro nuestro sitio.
+Dentro de /etc/nginx creamos el directorio SSL
+````
+sudo mkdir /etc/nginx/ssl
+````
+Tendremos el directorio donde guardaremos el certificado poara darle proteccion a la pagina.
+Lo siguientes sera generar un certificado autofirmado y clave privada
+
+````
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/web-dmz.key -out /etc/nginx/ssl/web-dmz.crt
+````
+Este comando hace que con la herramienta openssl se genere certificados  X.509, "-x509" genera directamente con autofirmado.
+nodes o no DES evita que usemos contraseña manual cada vez.
+day 365 como su nombre lo dice por 365 dias tendremos validez.
+rsa:2048 nos genero la clave con RSA DE 2048 BITS
+KEYOUT guarda la clave privada en la ruta mostrada
+OUT guarda la clave publica en la ruta mostrada
+Para verificar que se guardaron los certicados hacemos ssl a /etc/nginx/ssl verificando que este web-dmz.crt y web-dmz.key
+![UBUNTU](img/8-CERTIFICADOS.png)
+
+## Paso 6: PUERTO 430
+En el paso 3, se mostro el archivo de configuracion original el cual abriamos el puerto 80 para que nginx recibiera peticiones y las redirigiera a 8080 para que las manejara APACHE
+con el HTTPS quedara un poco distinto.
+vamos a /etc/nginx/sites-available
